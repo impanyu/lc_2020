@@ -1,0 +1,24 @@
+class Solution {
+//count_map storet the available chars in secret excluding bulls. This alogrithm can be further improved by using bidirectional counts in one pass.
+public:
+    string getHint(string secret, string guess) {
+       unordered_map<char,int> count_map;
+       int n = secret.size();
+       int bulls = 0, cows = 0;
+       for(int i=0; i<n;i++){
+         if(secret[i] == guess[i])
+             bulls+= 1;
+         else
+             count_map[secret[i]]++;     
+             
+       }
+       for(int i=0; i<n;i++){
+           if(secret[i] != guess[i] && count_map[guess[i]]>0){
+               cows++;
+               count_map[guess[i]]--;
+           }
+       }
+       return to_string(bulls)+"A"+to_string(cows)+"B";
+        
+    }
+};
