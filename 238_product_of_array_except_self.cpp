@@ -1,0 +1,20 @@
+class Solution {
+//1.for each pos, the final result = left product * right product
+//2.two passes for each side
+//3.resembles 42's two pass dp solution
+public:
+    vector<int> productExceptSelf(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans(n,1);
+        int prod = 1;
+        for(int i = 0; i < n; i++){
+            ans[i] = prod;
+            prod *= nums[i];
+        }
+        for(int i = n-1, prod = 1; i >= 0; i--){
+            ans[i] *= prod;
+            prod *= nums[i];
+        }
+        return ans;
+    } 
+};
