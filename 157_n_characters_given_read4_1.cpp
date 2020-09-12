@@ -14,8 +14,7 @@ public:
        int r = 0;
        while(count <= n/4){
            r = read4(buf+ count*4);
-           if(r < 4 || n - count*4 < 4)
-               break;
+           if(r < 4) break;
            count++;
        }
         return count*4 + min(r,n-count*4);
