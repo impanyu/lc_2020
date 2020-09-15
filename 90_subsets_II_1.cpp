@@ -11,12 +11,10 @@ public:
     void dfs(vector<int>& nums, vector<vector<int>>& ans, vector<int>& out, int start){
         ans.push_back(out);
         for(int i = start; i < nums.size(); i++){
-            while(i>start && i< nums.size() && nums[i] == nums[i-1]) i++;
-            if(i == nums.size()) break;
+            if(i>start && nums[i] == nums[i-1]) continue;
             out.push_back(nums[i]);
             dfs(nums,ans,out,i+1);
             out.pop_back();
         }
     }
 };
-
