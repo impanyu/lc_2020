@@ -1,4 +1,5 @@
 //two conditions: 1. no circle 2. connected
+//suitable for undirected graph. For circle detection in directed graph, use dfs in 207.
 class Solution {
 public:
     bool validTree(int n, vector<vector<int>>& edges) {
