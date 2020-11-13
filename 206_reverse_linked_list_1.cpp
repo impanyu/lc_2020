@@ -25,7 +25,6 @@ public:
 
 
 //method 2
-
 class Solution {
 public:
     ListNode* reverseList(ListNode* head) {
